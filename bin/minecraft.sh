@@ -20,7 +20,6 @@ graceful_shutdown(){
 }
 
 mc_port=25566
-port=${PORT:-8080}
 
 
 if [ -z "$NGROK_API_TOKEN" ]; then
@@ -56,7 +55,4 @@ trap "graceful_shutdown $java_pid $ngrok_pid" SIGTERM
 # start syncing
 node sync_world.js &
 
-while :
-do
-	sleep 10000
-done
+node index.js

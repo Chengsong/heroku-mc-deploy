@@ -1,1 +1,1 @@
-worker: bin/minecraft.sh
+web: bin/minecraft.sh

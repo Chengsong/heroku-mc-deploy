@@ -1,5 +1,1 @@
 ngrok_auth: 49E8PnMoh1vxXqzhe7Sgi_48RUoqDLuMEsmRr33sSyK
-
-ngrok tcp -authtoken 49E8PnMoh1vxXqzhe7Sgi_48RUoqDLuMEsmRr33sSyK -log stdout --log-level debug 4040 | tee ngrok.log &
-
-api http://127.0.0.1:4040/api

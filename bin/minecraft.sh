@@ -20,9 +20,12 @@ if [ -z "$NGROK_API_TOKEN" ]; then
   exit 2
 fi
 
-#starts ngrok tunnel
+# starts ngrok tunnel
 start_tunnel &
 ngrok_pid=$!
+
+# downloads the world
+node init.js
 
 # create server config
 if [ -f server.properties ]; then
@@ -40,15 +43,7 @@ eval "java -Xmx${heap} -Xms${heap} -jar server.jar nogui &"
 java_pid=$!
 
 # trap "kill $ngrok_pid $java_pid" SIGTERM
-trap "node index.js; echo 'KILLING $java_pid and $ngrok_pid'; kill $ngrok_pid $java_pid; exit 0" SIGTERM
+trap "echo 'KILLING $java_pid and $ngrok_pid'; kill $ngrok_pid $java_pid; exit 0" SIGTERM
 
-echo 'STARTING DOWNLOAD'
-node index.js
-
-# eval "ruby -rwebrick -e'WEBrick::HTTPServer.new(:BindAddress => \"0.0.0.0\", :Port => ${port}, :MimeTypes => {\"rhtml\" => \"text/html\"}, :DocumentRoot => Dir.pwd).start'"
-
-while :
-do
-	ps
-	sleep 30
-done
+# start syncing
+node sync_world.js

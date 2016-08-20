@@ -1,0 +1,67 @@
+[22:39:34] [Server thread/INFO]: Starting minecraft server version 1.10.2
+[22:39:34] [Server thread/INFO]: Loading properties
+[22:39:34] [Server thread/INFO]: Default game type: SURVIVAL
+[22:39:34] [Server thread/INFO]: Generating keypair
+[22:39:35] [Server thread/INFO]: Starting Minecraft server on *:25565
+[22:39:35] [Server thread/INFO]: Using default channel type
+[22:39:35] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[22:39:35] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[22:39:35] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[22:39:35] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[22:39:35] [Server thread/WARN]: Failed to load user banlist: 
+java.io.FileNotFoundException: banned-players.json (No such file or directory)
+	at java.io.FileInputStream.open(Native Method) ~[?:1.7.0_55]
+	at java.io.FileInputStream.<init>(FileInputStream.java:146) ~[?:1.7.0_55]
+	at com.google.common.io.Files.newReader(Files.java:86) ~[server.jar:?]
+	at mt.g(SourceFile:136) ~[server.jar:?]
+	at lc.z(SourceFile:99) [server.jar:?]
+	at lc.<init>(SourceFile:25) [server.jar:?]
+	at ld.j(SourceFile:185) [server.jar:?]
+	at net.minecraft.server.MinecraftServer.run(SourceFile:428) [server.jar:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_55]
+[22:39:35] [Server thread/WARN]: Failed to load ip banlist: 
+java.io.FileNotFoundException: banned-ips.json (No such file or directory)
+	at java.io.FileInputStream.open(Native Method) ~[?:1.7.0_55]
+	at java.io.FileInputStream.<init>(FileInputStream.java:146) ~[?:1.7.0_55]
+	at com.google.common.io.Files.newReader(Files.java:86) ~[server.jar:?]
+	at mt.g(SourceFile:136) ~[server.jar:?]
+	at lc.y(SourceFile:91) [server.jar:?]
+	at lc.<init>(SourceFile:27) [server.jar:?]
+	at ld.j(SourceFile:185) [server.jar:?]
+	at net.minecraft.server.MinecraftServer.run(SourceFile:428) [server.jar:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_55]
+[22:39:35] [Server thread/WARN]: Failed to load operators list: 
+java.io.FileNotFoundException: ops.json (No such file or directory)
+	at java.io.FileInputStream.open(Native Method) ~[?:1.7.0_55]
+	at java.io.FileInputStream.<init>(FileInputStream.java:146) ~[?:1.7.0_55]
+	at com.google.common.io.Files.newReader(Files.java:86) ~[server.jar:?]
+	at mt.g(SourceFile:136) ~[server.jar:?]
+	at lc.A(SourceFile:107) [server.jar:?]
+	at lc.<init>(SourceFile:29) [server.jar:?]
+	at ld.j(SourceFile:185) [server.jar:?]
+	at net.minecraft.server.MinecraftServer.run(SourceFile:428) [server.jar:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_55]
+[22:39:35] [Server thread/WARN]: Failed to load white-list: 
+java.io.FileNotFoundException: whitelist.json (No such file or directory)
+	at java.io.FileInputStream.open(Native Method) ~[?:1.7.0_55]
+	at java.io.FileInputStream.<init>(FileInputStream.java:146) ~[?:1.7.0_55]
+	at com.google.common.io.Files.newReader(Files.java:86) ~[server.jar:?]
+	at mt.g(SourceFile:136) ~[server.jar:?]
+	at lc.C(SourceFile:123) [server.jar:?]
+	at lc.<init>(SourceFile:30) [server.jar:?]
+	at ld.j(SourceFile:185) [server.jar:?]
+	at net.minecraft.server.MinecraftServer.run(SourceFile:428) [server.jar:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_55]
+[22:39:35] [Server thread/INFO]: Preparing level "world"
+[22:39:36] [Server thread/INFO]: Preparing start region for level 0
+[22:39:37] [Server thread/INFO]: Preparing spawn area: 5%
+[22:39:38] [Server thread/INFO]: Preparing spawn area: 12%
+[22:39:39] [Server thread/INFO]: Preparing spawn area: 21%
+[22:39:40] [Server thread/INFO]: Preparing spawn area: 33%
+[22:39:41] [Server thread/INFO]: Preparing spawn area: 47%
+[22:39:42] [Server thread/INFO]: Preparing spawn area: 61%
+[22:39:43] [Server thread/INFO]: Preparing spawn area: 78%
+[22:39:44] [Server thread/INFO]: Preparing spawn area: 94%
+[22:39:44] [Server thread/INFO]: Done (9.282s)! For help, type "help" or "?"
+[22:41:12] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 3663ms behind, skipping 73 tick(s)
+[22:41:12] [Server Shutdown Thread/INFO]: Stopping server

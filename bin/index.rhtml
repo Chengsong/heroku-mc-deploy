@@ -1,0 +1,6 @@
+<% open('ngrok.log') do |f| %>
+  <% f.lines.select { |line| line.include?("URL:") }.each do |line| %>
+    <%= line %>
+    <br />
+  <% end %>
+<% end %>

@@ -11,6 +11,14 @@ start_tunnel(){
 	done
 }
 
+graceful_shutdown(){
+	echo 'KILLING $1 and $2'
+	kill $1 $2 
+	wait $1
+	node last_sync.js
+	exit 0
+}
+
 mc_port=25566
 port=${PORT:-8080}
 
@@ -43,7 +51,7 @@ eval "java -Xmx${heap} -Xms${heap} -jar server.jar nogui &"
 java_pid=$!
 
 # trap "kill $ngrok_pid $java_pid" SIGTERM
-trap "echo 'KILLING $java_pid and $ngrok_pid'; kill $ngrok_pid $java_pid; node upload_world.js; exit 0" SIGTERM
+trap "graceful_shutdown $java_pid $ngrok_pid" SIGTERM
 
 # start syncing
 node sync_world.js &

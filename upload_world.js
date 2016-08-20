@@ -36,4 +36,4 @@ function getUploadStream(path) {
 	}, callback);
 }
 
-module.exports = uploadWorld
+module.exports = uploadWorld;

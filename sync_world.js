@@ -1,5 +1,3 @@
-fs = require('fs');
-archiver = require('archiver');
 uploadWorld = require('./upload_world.js');
 
 // MAIN

@@ -1,5 +1,5 @@
 var express = require('express');
-var fs = reqquire('fs');
+var fs = require('fs');
 var app = express();
 app.set('port', process.env.PORT || 8080);
 
@@ -7,7 +7,7 @@ app.get('/', function (req, res) {
 	fs.readFile('../bin/ngrok.log', (err, data) => {
 		if(err) console.log(err);
 
-		res.send(data);
+		res.send(data.match(/URL:tcp:\/\/(.*?)\s/)[1]);
 	});
 });
 

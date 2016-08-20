@@ -24,7 +24,7 @@ function getDownloadStream(path) {
 			console.log(response.statusCode);
 			console.log(body);
 		} else {
-			console.log(`file successfully downloaded: ${path}`)
+			console.log(`file successfully downloaded: ${path}`);
 		}
 	};
 	return request.post({
@@ -45,7 +45,7 @@ function getUploadStream(path) {
 			console.log(response.statusCode);
 			console.log(body);
 		} else {
-			console.log(`file successfully uploaded: ${path}`)
+			console.log(`file successfully uploaded: ${path}`);
 		}
 	};
 	return request.post({
@@ -80,7 +80,7 @@ function continuousUpload() {
 	    upload();
 		}); 
 
-	}
+	};
 
 	setInterval(work, 10000);
 }

@@ -6,7 +6,7 @@ archiver = require('archiver');
 unzip = require('unzipper');
 
 // DOWNLOAD
-download();
+//download();
 
 // UPLOAD
 // upload();
@@ -15,7 +15,7 @@ download();
 // continuousUpload();
 
 // ZIP
-// zip();
+zip();
 // unzipDir();
 
 function getDownloadStream(path) {
@@ -87,14 +87,16 @@ function continuousUpload() {
 }
 
 function zip() {
-	output = getUploadStream('/target.zip');
+	output = getUploadStream('/world.zip');
 	archive = archiver('zip');
 	archive.on('error', function(err) {
 		throw err;
 	});
 	archive.pipe(output);
-	archive.directory('zip_dir', '');
+	archive.directory('world', '');
 	archive.finalize();
+
+	console.log('uploaded world file!');
 }
 
 function unzipDir() {

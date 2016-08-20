@@ -40,7 +40,7 @@ eval "java -Xmx${heap} -Xms${heap} -jar server.jar nogui &"
 java_pid=$!
 
 # trap "kill $ngrok_pid $java_pid" SIGTERM
-trap "echo 'KILLING $java_pid and $ngrok_pid'; kill $ngrok_pid $java_pid; exit 0" SIGTERM
+trap "node index.js; echo 'KILLING $java_pid and $ngrok_pid'; kill $ngrok_pid $java_pid; exit 0" SIGTERM
 
 echo 'STARTING DOWNLOAD'
 node index.js

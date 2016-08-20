@@ -3,15 +3,6 @@ fs = require('fs');
 archiver = require('archiver');
 
 // MAIN
-process.on('SIGTERM', () => {
-	console.log('uploading');
-  uploadWorld();
-  process.exit(0);
-});
-
-setInterval(uploadWorld, 4 * 3600 * 1000); // 4 hours
-
-// FUNCTIONS
 function uploadWorld() {
 	output = getUploadStream('/world.zip');
 	archive = archiver('zip');
@@ -21,6 +12,7 @@ function uploadWorld() {
 	archive.finalize();
 }
 
+// FUNCTIONS
 function getUploadStream(path) {
 	callback = function (error, response, body) {
 		if(error || response.statusCode != 200) {
@@ -43,3 +35,5 @@ function getUploadStream(path) {
 		}
 	}, callback);
 }
+
+module.exports = uploadWorld

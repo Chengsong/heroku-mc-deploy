@@ -5,7 +5,7 @@ start_tunnel(){
 	while true
 	do
 		echo -n "-----> Starting ngrok... "
-		bin/ngrok tcp -authtoken $NGROK_API_TOKEN -log stdout --log-level info ${mc_port} | tee ngrok.log
+		bin/ngrok tcp -authtoken $NGROK_API_TOKEN -log stdout --log-level debug ${mc_port} | tee ngrok.log
 		echo -n "ngrok failed, retrying after 10 seconds "
 		sleep 10
 	done

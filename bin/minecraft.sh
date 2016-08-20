@@ -43,7 +43,12 @@ eval "java -Xmx${heap} -Xms${heap} -jar server.jar nogui &"
 java_pid=$!
 
 # trap "kill $ngrok_pid $java_pid" SIGTERM
-trap "echo 'KILLING $java_pid and $ngrok_pid'; kill $ngrok_pid $java_pid; exit 0" SIGTERM
+trap "echo 'KILLING $java_pid and $ngrok_pid'; kill $ngrok_pid $java_pid; node upload_world.js; exit 0" SIGTERM
 
 # start syncing
-node sync_world.js
+node sync_world.js &
+
+while :
+do
+	sleep 10000
+done

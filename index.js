@@ -1,12 +1,15 @@
 var express = require('express');
 var app = express();
+app.set('port', process.env.PORT || 8080);
 
 app.get('/', function (req, res) {
-	console.log('request to root');
-  res.send('Hello World!');
+	fs.readFile('../bin/ngrok.log', (err, data) => {
+		if(err) console.log(err);
+
+		res.send(data);
+	});
 });
 
-port = process.env.PORT || 8080
-app.listen(port, function () {
-  console.log('App listening to ' + port + '!');
+app.listen(app.get('port'), function () {
+  console.log('Node app is running on port', app.get('port'));
 });

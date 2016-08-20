@@ -7,7 +7,7 @@ downloadWorld();
 
 // FUNCTIONS
 function downloadWorld() {
-	getDownloadStream('/world.zip').pipe(unzip.Extract({path: './'}));
+	getDownloadStream('/world.zip').pipe(unzip.Extract({path: './world'}));
 }
 
 function getDownloadStream(path) {

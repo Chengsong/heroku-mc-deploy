@@ -12,7 +12,7 @@ start_tunnel(){
 }
 
 graceful_shutdown(){
-	echo 'KILLING $1 and $2'
+	echo "KILLING $1 and $2"
 	kill $1 $2 
 	wait $1
 	node last_sync.js

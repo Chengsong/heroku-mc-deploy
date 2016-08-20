@@ -27,6 +27,7 @@ function getDownloadStream(path) {
 			console.log(`file successfully downloaded: ${path}`);
 		}
 	};
+
 	return request.post({
 		url: 'https://content.dropboxapi.com/2/files/download',
 		headers: {
@@ -36,7 +37,7 @@ function getDownloadStream(path) {
 }
 
 function download() {
-	getDownloadStream('/image.png').pipe(fs.createWriteStream('image.png'));		
+	getDownloadStream('/test.txt').pipe(fs.createWriteStream('test.txt'));
 }
 
 function getUploadStream(path) {

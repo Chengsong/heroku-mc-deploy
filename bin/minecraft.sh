@@ -19,7 +19,7 @@ graceful_shutdown(){
 	exit 0
 }
 
-mc_port=25566
+mc_port=25565
 
 
 if [ -z "$NGROK_API_TOKEN" ]; then

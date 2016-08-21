@@ -35,7 +35,7 @@ ngrok_pid=$!
 node init.js
 
 # create server config
-if [ -f server.properties ]; then
+if [ ! -f server.properties ]; then
   echo "server-port=${mc_port}" >> server.properties
 fi
 touch whitelist.json

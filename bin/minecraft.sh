@@ -19,6 +19,10 @@ graceful_shutdown(){
 	exit 0
 }
 
+echo 'sleeping 30s to wait for previous instance to terminate'
+sleep 30
+echo 'starting deployment'
+
 mc_port=25565
 
 

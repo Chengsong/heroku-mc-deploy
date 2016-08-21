@@ -59,4 +59,10 @@ trap "graceful_shutdown $java_pid $ngrok_pid" SIGTERM
 # start syncing
 node sync_world.js &
 
-node index.js
+node index.js &
+
+while true
+do
+	curl --silent 'http://cs-mc-server.herokuapp.com/' > /dev/null 2>&1
+	sleep 1500
+done

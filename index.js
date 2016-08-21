@@ -3,6 +3,12 @@ var fs = require('fs');
 var app = express();
 app.set('port', process.env.PORT || 8080);
 
+process.on('SIGTERM', () => {
+	console.log('index.js shutting down');
+  process.exit(0);
+});
+
+
 app.get('/', function (req, res) {
 	fs.readFile('./ngrok.log', (err, data) => {
 		if(err) console.log(err);

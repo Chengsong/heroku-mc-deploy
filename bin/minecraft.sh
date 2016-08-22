@@ -55,7 +55,7 @@ touch ops.json
 heap=${HEAP:-"1024M"}
 
 echo "Starting: minecraft ${mc_port}"
-java -Xmx${heap} -Xms${heap} -XX:+UseCompressedOops -jar server.jar nogui &
+java -Xmx${heap} -Xms${heap} -Xss512k -XX:+UseCompressedOops -jar server.jar nogui &
 java_pid=$!
 
 # trap "kill $ngrok_pid $java_pid" SIGTERM

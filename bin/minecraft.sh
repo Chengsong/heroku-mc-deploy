@@ -5,7 +5,7 @@ start_tunnel(){
 	while true
 	do
 		echo -n "-----> Starting ngrok... "
-		bin/ngrok tcp -authtoken $NGROK_API_TOKEN -log stdout --log-level debug ${mc_port} | tee ngrok.log
+		bin/ngrok tcp -authtoken $NGROK_API_TOKEN -log stdout --log-level debug ${mc_port} &> ngrok.log
 		echo -n "ngrok failed, retrying after 10 seconds "
 		sleep 10
 	done
@@ -31,6 +31,11 @@ if [ -z "$NGROK_API_TOKEN" ]; then
   exit 2
 fi
 
+if [ -z "$DROPBOX_API_TOKEN" ]; then
+  echo "You must set the DROPBOX_API_TOKEN config var to sync with dropbox!"
+  exit 3
+fi
+
 # starts ngrok tunnel
 start_tunnel &
 ngrok_pid=$!
@@ -47,10 +52,10 @@ touch banned-players.json
 touch banned-ips.json
 touch ops.json
 
-heap="512m"
+heap=${HEAP:-"1024M"}
 
 echo "Starting: minecraft ${mc_port}"
-eval "java -Xmx${heap} -Xms${heap} -jar server.jar nogui &"
+java -Xmx${heap} -Xms${heap} -XX:+UseCompressedOops -jar server.jar nogui &
 java_pid=$!
 
 # trap "kill $ngrok_pid $java_pid" SIGTERM

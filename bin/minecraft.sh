@@ -4,7 +4,7 @@
 start_tunnel(){
 	while true
 	do
-		echo -n "-----> Starting ngrok... "
+		echo -n "Starting ngrok... "
 		bin/ngrok tcp -authtoken $NGROK_API_TOKEN -log stdout --log-level debug ${mc_port} &> ngrok.log
 		echo -n "ngrok failed, retrying after 10 seconds "
 		sleep 10
@@ -64,10 +64,12 @@ trap "graceful_shutdown $java_pid $ngrok_pid" SIGTERM
 # start syncing
 node sync_world.js &
 
+# start listening on $PORT
 node index.js &
 
+# curl the server every 25 min so it doesn't sleep
 while true
 do
-	curl --silent 'http://cs-mc-server.herokuapp.com/' > /dev/null 2>&1
+	curl --silent 'http://cs-mc-server.herokuapp.com/' &> /dev/null
 	sleep 1500
 done
